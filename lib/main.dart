@@ -38,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         //ส่วนหัวแอป
-        title: Text("โปรแกรมนับเลข"),
+        title: Text("เลือกเมนู"),
       ),
       body: Center(
         child: ListView(
@@ -51,7 +51,14 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Widget> getData(int count) {
     List<Widget> data = [];
     for (var i = 0; i < count; i++) {
-      data.add(Text("กดปุ่มเพิ่มจำนวนตัวเลข ${i + 1}"));
+      var menu = ListTile(
+        title: Text(
+          "เมนู ${i + 1}",
+          style: TextStyle(fontSize: 25),
+        ),
+        subtitle: Text("หัวข้อย่อยที่ ${i + 1}"),
+      );
+      data.add(menu);
     }
     return data;
   }
