@@ -18,9 +18,15 @@ class MyApp extends StatelessWidget {
           title: Text("Hello Flutter "),
         ),
         body: Center(
-            child: Image(
-                image: NetworkImage(
-                    "https://image.shutterstock.com/image-illustration/3d-rendering-billboards-advertisement-signs-600w-1804289950.jpg"))),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text("Hello Dart 1"),
+              Text("Hello Dart 2"),
+              Text("Hello Dart 3")
+            ],
+          ),
+        ),
       ),
       theme: ThemeData(primarySwatch: Colors.red),
     );
