@@ -45,7 +45,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          setState(() {
+            number++;
+          });
+        },
         child: Icon(Icons.add),
       ),
     );
