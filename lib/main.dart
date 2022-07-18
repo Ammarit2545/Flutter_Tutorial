@@ -17,9 +17,14 @@ class MyApp extends StatelessWidget {
           //ส่วนหัวแอป
           title: Text("Hello Flutter "),
         ),
-        body: Text("Hello Dart "),
+        body: Center(
+          child: Text(
+            "Hello Dart ",
+            style: TextStyle(fontSize: 30, color: Colors.purple),
+          ),
+        ),
       ),
-      theme: ThemeData(primarySwatch: Colors.green),
+      theme: ThemeData(primarySwatch: Colors.red),
     );
   }
 }
