@@ -30,28 +30,29 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    /*List<Widget> data = [];
+    for (var i = 0; i < 10; i++) {
+      data.add(Text("กดปุ่มเพิ่มจำนวนตัวเลข $i"));
+    }*/
+
     return Scaffold(
       appBar: AppBar(
         //ส่วนหัวแอป
-        title: Text("Hello Flutter "),
+        title: Text("โปรแกรมนับเลข"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("กดปุ่มเพิ่มจำนวนเลข"),
-            Text("$number", style: TextStyle(fontSize: 60))
-          ],
+        child: ListView(
+          children: getData(20),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            number++;
-          });
-        },
-        child: Icon(Icons.add),
-      ),
     );
+  }
+
+  List<Widget> getData(int count) {
+    List<Widget> data = [];
+    for (var i = 0; i < count; i++) {
+      data.add(Text("กดปุ่มเพิ่มจำนวนตัวเลข ${i + 1}"));
+    }
+    return data;
   }
 }
