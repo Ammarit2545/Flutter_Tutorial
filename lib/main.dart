@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "โปรแกรมนับเลข",
       home: MyHomePage(),
-      theme: ThemeData(primarySwatch: Colors.green),
+      theme: ThemeData(primarySwatch: Colors.pink),
     );
   }
 }
@@ -29,7 +29,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   List<FoodMenu> menu = [
     FoodMenu("กุ้งเผา", "50", "assets/image/01.jpg"),
-    FoodMenu("กระเพรา", "60", "assets/image/02.jpg")
+    FoodMenu("กระเพราหมูไข่ดาว", "50", "assets/image/02.jpg"),
+    FoodMenu("ส้มตำ", "80", "assets/image/03.jpg"),
+    FoodMenu("ผัดไทย", "60", "assets/image/04.jpg")
   ];
 
   int number = 0; //สร้าง state
@@ -41,19 +43,23 @@ class _MyHomePageState extends State<MyHomePage> {
           //ส่วนหัวแอป
           title: Text("เลือกเมนู"),
         ),
-        body: ListView.builder(
-            itemCount: menu.length,
-            itemBuilder: (BuildContext context, int index) {
-              FoodMenu food = menu[index];
-              return ListTile(
-                leading: Image.asset(food.img),
-                title: Text(
-                  food.name,
-                  style: TextStyle(fontSize: 30),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(10)),
+                height: 120,
+                child: Row(
+                  children: [Text("ยอดเงินคงเหลือ"), Text("15000")],
                 ),
-                subtitle: Text("ราคา = " + food.price + " Bath"),
-              );
-            }));
+              ),
+            ],
+          ),
+        ));
   }
 
   List<Widget> getData(int count) {
