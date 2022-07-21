@@ -1,5 +1,3 @@
-/*import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';*/
 import 'package:flutter/material.dart';
 
 class MoneyBox extends StatelessWidget {
@@ -27,7 +25,7 @@ class MoneyBox extends StatelessWidget {
           ),
           Expanded(
             child: Text(
-              amount.toString(),
+              '${NumberFormat("#,###.##").format(amount)}',
               style: TextStyle(
                   fontSize: 25,
                   color: Colors.white,
