@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "โปรแกรมนับเลข",
       home: MyHomePage(),
-      theme: ThemeData(primarySwatch: Colors.pink),
+      theme: ThemeData(primarySwatch: Colors.purple),
     );
   }
 }
@@ -50,11 +50,120 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                 padding: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
-                    color: Colors.green,
+                    color: Colors.lightBlue,
                     borderRadius: BorderRadius.circular(10)),
                 height: 120,
                 child: Row(
-                  children: [Text("ยอดเงินคงเหลือ"), Text("15000")],
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "ยอดเงินคงเหลือ : ",
+                      style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Expanded(
+                      child: Text(
+                        "15000",
+                        style: TextStyle(
+                            fontSize: 25,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.right,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(10)),
+                height: 100,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "รายรับ : ",
+                      style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Expanded(
+                      child: Text(
+                        "15000",
+                        style: TextStyle(
+                            fontSize: 25,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.right,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                    color: Colors.pink,
+                    borderRadius: BorderRadius.circular(10)),
+                height: 100,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "รายจ่าย : ",
+                      style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "15000",
+                      style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Container(
+                padding: const EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                    color: Colors.purple,
+                    borderRadius: BorderRadius.circular(10)),
+                height: 100,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "ค้างชำระ : ",
+                      style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "1200",
+                      style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    )
+                  ],
                 ),
               ),
             ],
