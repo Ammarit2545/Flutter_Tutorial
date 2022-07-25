@@ -19,6 +19,7 @@ import 'package:flutter/material.dart';
 import 'FoodMenu.dart';
 import 'MoneyBox.dart';
 import 'package:http/http.dart' as http;
+import 'ExchangeRate.dart';
 
 void main() {
   runApp(MyApp());
@@ -46,6 +47,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  ExchangeRate dataFromAPI;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -57,8 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
     var url =
         "https://api.apilayer.com/exchangerates_data/live?base=USD&symbols=THB,GBP";
     var response = await http.get(url);
-
-    print(response.body);
+    _dataFromAPI = exchangeRateFromJson(response.body)
   }
 
   @override
@@ -70,7 +73,9 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("อัตราการแลกปลี่ยน"),
       ),
       body: Column(
-        children: [],
+        children: [
+          Text("ข้อมูลสกุลเงิน");
+        ],
       ),
     );
   }
