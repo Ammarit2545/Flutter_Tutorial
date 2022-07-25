@@ -25,7 +25,7 @@ class MoneyBox extends StatelessWidget {
           ),
           Expanded(
             child: Text(
-              '${NumberFormat("#,###.##").format(amount)}',
+              amount.toString(),
               style: TextStyle(
                   fontSize: 25,
                   color: Colors.white,

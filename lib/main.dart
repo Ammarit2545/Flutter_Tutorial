@@ -28,41 +28,33 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<FoodMenu> menu = [
-    FoodMenu("กุ้งเผา", "50", "assets/image/01.jpg"),
-    FoodMenu("กระเพราหมูไข่ดาว", "50", "assets/image/02.jpg"),
-    FoodMenu("ส้มตำ", "80", "assets/image/03.jpg"),
-    FoodMenu("ผัดไทย", "60", "assets/image/04.jpg")
-  ];
-
-  int number = 0; //สร้าง state
+  int number = 0;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print("เรียกใช้งาน init state");
+  }
 
   @override
   Widget build(BuildContext context) {
+    print("เรียกใช้งาน Build");
     return Scaffold(
         appBar: AppBar(
           //ส่วนหัวแอป
           title: Text("เลือกเมนู"),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              MoneyBox("ยอดคงเหลือ", 12000, Colors.lightBlue, 120),
-              SizedBox(
-                height: 5,
-              ),
-              MoneyBox("รายรับ", 15000, Colors.green, 120),
-              SizedBox(
-                height: 5,
-              ),
-              MoneyBox("รายจ่าย", 15222, Colors.purple, 120),
-              SizedBox(
-                height: 5,
-              ),
-              MoneyBox("ค้างชำระ", 15222, Colors.pink, 120)
-            ],
-          ),
+        body: Column(
+          children: [
+            Text(
+              number.toString(),
+              style: TextStyle(fontSize: 30),
+            )
+          ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: Icon(Icons.add),
         ));
   }
 
