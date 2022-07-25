@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class MoneyBox extends StatelessWidget {
-  late String title;
+  late String title; //สกุล
   late double amount;
   late Color color;
   late double size;
@@ -11,7 +11,7 @@ class MoneyBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(20.0),
       decoration:
           BoxDecoration(color: color, borderRadius: BorderRadius.circular(10)),
       height: size,

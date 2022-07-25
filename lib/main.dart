@@ -70,21 +70,33 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         appBar: AppBar(
           //ส่วนหัวแอป
-          title: Text("อัตราการแลกปลี่ยน"),
+          title: Text("แอปแปลงสกุลเงิน"),
         ),
         body: FutureBuilder(
           future: getExchangeRate(),
           builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-            if (snapshot.connectionState == ConnectionState.done){
-              return Text("ดึงข้อมูลมาครบแล้ว")ว
+            if (snapshot.connectionState == ConnectionState.done) {
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    MoneyBox("สกุลเงิน (EUR)", 1, Colors.lightBlue, 120),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    MoneyBox("THB", result.rates["THB"], Colors.green, 120),
+                    MoneyBox("USD", result.rates["USD"], Colors.red, 120),
+                  ],
+                ),
+              );
             }
             return LinearProgressIndicator();
           },
         ));
   }
 }
- 
- /* List<Widget> getData(int count) {
+
+/* List<Widget> getData(int count) {
     List<Widget> data = [];
     for (var i = 0; i < count; i++) {
       var menu = ListTile(
