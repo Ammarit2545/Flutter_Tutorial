@@ -56,30 +56,31 @@ class _MyHomePageState extends State<MyHomePage> {
     getExchangeRate();
   }
 
-  Future<void> getExchangeRate() async {
+  Future<ExchangeRate> getExchangeRate() async {
     var url =
         "https://api.apilayer.com/exchangerates_data/live?base=USD&symbols=THB,GBP";
     var response = await http.get(url);
-    setState(() {
-      _dataFromAPI = exchangeRateFromJson(response.body);
-    });
+    _dataFromAPI = exchangeRateFromJson(response.body);
+    return _dataFromAPI;
   }
 
   @override
   Widget build(BuildContext context) {
     print("เรียกใช้งาน Build");
     return Scaffold(
-      appBar: AppBar(
-        //ส่วนหัวแอป
-        title: Text("อัตราการแลกปลี่ยน"),
-      ),
-      body: Column(
-        children: [
-          LinearProgressIndicator(),
-          Text(_dataFromAPI?.base ?? "loading . . .")
-        ],
-      ),
-    );
+        appBar: AppBar(
+          //ส่วนหัวแอป
+          title: Text("อัตราการแลกปลี่ยน"),
+        ),
+        body: FutureBuilder(
+          future: getExchangeRate(),
+          builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+            if (snapshot.connectionState == ConnectionState.done){
+              return Text("ดึงข้อมูลมาครบแล้ว")ว
+            }
+            return LinearProgressIndicator();
+          },
+        ));
   }
 }
  
