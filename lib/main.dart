@@ -1,3 +1,24 @@
+void main() {
+  //login
+  print(loginUser());
+}
+
+String loginUser() {
+  var user = getUserFromDatabase();
+  return user;
+}
+
+String getUserFromDatabase() {
+  return "Ammarit";
+}
+
+
+
+
+
+
+
+/*
 import 'package:flutter/material.dart';
 import 'FoodMenu.dart';
 import 'MoneyBox.dart';
@@ -15,7 +36,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "โปรแกรมนับเลข",
       home: MyHomePage(),
-      theme: ThemeData(primarySwatch: Colors.purple),
+      theme: ThemeData(primarySwatch: Colors.lightBlue),
     );
   }
 }
@@ -53,7 +74,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            setState(() {
+              number++;
+            });
+          },
           child: Icon(Icons.add),
         ));
   }
@@ -73,3 +98,4 @@ class _MyHomePageState extends State<MyHomePage> {
     return data;
   }
 }
+*/
