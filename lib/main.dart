@@ -1,22 +1,19 @@
-void main() {
-  //login
-  print(loginUser());
+void main() async {
+  // login
+  print(await loginUser());
+  print("ทำงานอื่นต่อไป");
 }
 
-String loginUser() {
-  var user = getUserFromDatabase();
-  return user;
+Future<String> loginUser() async {
+  // ดึงข้อมูล
+  var user = await getUserFromDatabase();
+  return "ชื่อผู้ใช้ คือ " + user;
 }
 
-String getUserFromDatabase() {
-  return "Ammarit";
+//
+Future<String> getUserFromDatabase() {
+  return Future.delayed(Duration(seconds: 10), () => "Ammarit");
 }
-
-
-
-
-
-
 
 /*
 import 'package:flutter/material.dart';
