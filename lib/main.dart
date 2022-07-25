@@ -1,4 +1,4 @@
-void main() async {
+/*void main() async {
   // login
   print(await loginUser());
   print("ทำงานอื่นต่อไป");
@@ -10,15 +10,15 @@ Future<String> loginUser() async {
   return "ชื่อผู้ใช้ คือ " + user;
 }
 
-//
+//ข้อมูล
 Future<String> getUserFromDatabase() {
   return Future.delayed(Duration(seconds: 10), () => "Ammarit");
-}
+}*/
 
-/*
 import 'package:flutter/material.dart';
 import 'FoodMenu.dart';
 import 'MoneyBox.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(MyApp());
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "โปรแกรมนับเลข",
       home: MyHomePage(),
-      theme: ThemeData(primarySwatch: Colors.lightBlue),
+      theme: ThemeData(primarySwatch: Colors.purple),
     );
   }
 }
@@ -51,7 +51,13 @@ class _MyHomePageState extends State<MyHomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    print("เรียกใช้งาน init state");
+    getExchangeRate();
+  }
+
+  Future<void> getExchangeRate() async {
+    var url = "http://api.exchangeratesapi.io/lastest?symbols=USD,THB";
+    var response = await http.get(url);
+    print(response.body);
   }
 
   @override
@@ -60,15 +66,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         appBar: AppBar(
           //ส่วนหัวแอป
-          title: Text("เลือกเมนู"),
+          title: Text("อัตราการแลกปลี่ยน"),
         ),
         body: Column(
-          children: [
-            Text(
-              number.toString(),
-              style: TextStyle(fontSize: 30),
-            )
-          ],
+          children: [],
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
@@ -95,4 +96,3 @@ class _MyHomePageState extends State<MyHomePage> {
     return data;
   }
 }
-*/
