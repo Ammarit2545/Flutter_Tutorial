@@ -47,7 +47,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   ExchangeRate dataFromAPI;
 
   @override
@@ -61,7 +60,9 @@ class _MyHomePageState extends State<MyHomePage> {
     var url =
         "https://api.apilayer.com/exchangerates_data/live?base=USD&symbols=THB,GBP";
     var response = await http.get(url);
-    _dataFromAPI = exchangeRateFromJson(response.body)
+    setState(() {
+      _dataFromAPI = exchangeRateFromJson(response.body);
+    });
   }
 
   @override
@@ -74,7 +75,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
-          Text("ข้อมูลสกุลเงิน");
+          LinearProgressIndicator(),
+          Text(_dataFromAPI?.base ?? "loading . . .")
         ],
       ),
     );
