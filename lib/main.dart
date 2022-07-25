@@ -76,16 +76,34 @@ class _MyHomePageState extends State<MyHomePage> {
           future: getExchangeRate(),
           builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
+              var result = snapshot.data;
+              double amount = 100;
+
               return Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    MoneyBox("สกุลเงิน (EUR)", 1, Colors.lightBlue, 120),
+                    MoneyBox("สกุลเงิน (THB)", amount, Colors.lightBlue, 150),
                     SizedBox(
                       height: 5,
                     ),
-                    MoneyBox("THB", result.rates["THB"], Colors.green, 120),
-                    MoneyBox("USD", result.rates["USD"], Colors.red, 120),
+                    MoneyBox(
+                        "USD", amount * result.rates["USD"], Colors.green, 100),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    MoneyBox(
+                        "EUR", amount * result.rates["EUR"], Colors.red, 100),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    MoneyBox(
+                        "GBP", amount * result.rates["GBP"], Colors.pink, 100),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    MoneyBox("JPY", amount * result.rates["JPY"], Colors.orange,
+                        100),
                   ],
                 ),
               );
@@ -95,6 +113,30 @@ class _MyHomePageState extends State<MyHomePage> {
         ));
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* List<Widget> getData(int count) {
     List<Widget> data = [];
