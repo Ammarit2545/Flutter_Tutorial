@@ -42,10 +42,7 @@ dependencies:
 flutter_icons:
   android: true
   image_path: "image/1.png"
-
-
- 
- 
+  
 
 dev_dependencies:
   flutter_test:

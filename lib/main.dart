@@ -46,7 +46,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int number = 0;
   @override
   void initState() {
     // TODO: implement initState
@@ -55,8 +54,10 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> getExchangeRate() async {
-    var url = "http://api.exchangeratesapi.io/lastest?symbols=USD,THB";
+    var url =
+        "https://api.apilayer.com/exchangerates_data/live?base=USD&symbols=THB,GBP";
     var response = await http.get(url);
+
     print(response.body);
   }
 
@@ -64,24 +65,18 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     print("เรียกใช้งาน Build");
     return Scaffold(
-        appBar: AppBar(
-          //ส่วนหัวแอป
-          title: Text("อัตราการแลกปลี่ยน"),
-        ),
-        body: Column(
-          children: [],
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            setState(() {
-              number++;
-            });
-          },
-          child: Icon(Icons.add),
-        ));
+      appBar: AppBar(
+        //ส่วนหัวแอป
+        title: Text("อัตราการแลกปลี่ยน"),
+      ),
+      body: Column(
+        children: [],
+      ),
+    );
   }
-
-  List<Widget> getData(int count) {
+}
+ 
+ /* List<Widget> getData(int count) {
     List<Widget> data = [];
     for (var i = 0; i < count; i++) {
       var menu = ListTile(
@@ -95,4 +90,4 @@ class _MyHomePageState extends State<MyHomePage> {
     }
     return data;
   }
-}
+}*/
